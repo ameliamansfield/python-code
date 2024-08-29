@@ -1,0 +1,35 @@
+# this code computes the mean, standard deviation and outliers of a data set
+
+import math
+
+def compute_mean(A):
+    total = sum(A)
+    mean = total / len(A)
+    return mean
+
+def compute_std(A):
+    mean = compute_mean(A)
+    total = 0
+    for k in A:
+        total += (k-mean)**2
+    std = math.sqrt( total / len(A) )
+    return std
+
+def find_outliers(A):
+    mean = compute_mean(A)
+    std = compute_std(A)
+    outlier1 = 0
+    outlier2 = 0
+    for k in A:
+        if k < (mean - 2*std):
+            print('Found outlier: ', k)
+        elif k > (mean + 2*std):
+            print('Found outlier: ', k)
+    print()
+
+data = [-2.3, -1.22, 1.6, -10.5, 1.4, 2.5, -3.32, 11.03, 2, 2, -1.4]
+print('mean =', compute_mean(data))
+print('standard deviation =', compute_std(data))
+
+for outlier in find_outliers(data):
+    print('Found outlier: ', outlier)
