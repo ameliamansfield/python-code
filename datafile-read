@@ -1,0 +1,17 @@
+# This program runs through a file called data2.txt and computes the averages of the amount of certain numbers within the file
+
+with open('data2.txt', 'r') as in_file:
+    line = in_file.readline()
+    while line != None:
+        line = line.strip()
+        print('[', line, ']', sep='')
+        if len(line) == 0:
+            break
+        data = line.split()
+        print(data)
+        x = float(data[0])
+        y = float(data[1])
+        z = float(data[2])
+        avg = (x + y + z) / 3.0
+        print('Average of ', x, ' ', y, ' ', z, ' is: ', avg, sep='')
+        line = in_file.readline()
