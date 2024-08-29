@@ -1,0 +1,28 @@
+#This code runs through a .txt file and counts how many times each fruit is mentioned, then displays the totals
+
+num_apples = 0
+num_bananas = 0
+num_pears = 0
+num_kiwis = 0
+num_oranges = 0
+with open('fruits.txt','r') as data_file:
+    line = data_file.readline()
+    while line != '':
+        fruit = line.strip()
+        if fruit == 'apple':
+            num_apples += 1
+        elif fruit == 'pear':
+            num_pears += 1
+        elif fruit == 'kiwi':
+            num_kiwis += 1
+        elif fruit == 'orange':
+            num_oranges += 1
+        else:
+            print('unknown fruit:', fruit)
+        line = data_file.readline()
+        
+print('# apples:', num_apples)
+print('# bananas:', num_bananas)
+print('# pears:', num_pears)
+print('# kiwi:', num_kiwis)
+print('# oranges:', num_oranges)
